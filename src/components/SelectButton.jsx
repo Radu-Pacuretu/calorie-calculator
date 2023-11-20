@@ -1,8 +1,19 @@
 /* eslint-disable react/prop-types */
-function SelectButton({ children }) {
+function SelectButton({
+  children,
+  activityLevel,
+  activityValue,
+  handleUpdate,
+}) {
   return (
     <label>
-      <input type="radio" name="activity"></input>
+      <input
+        type="radio"
+        name="activityLevel"
+        value={activityValue}
+        checked={activityLevel === activityValue}
+        onChange={(e) => handleUpdate(e)}
+      ></input>
       <div>{children}</div>
     </label>
   );
